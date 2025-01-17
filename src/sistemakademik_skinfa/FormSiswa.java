@@ -4,11 +4,36 @@
  */
 package sistemakademik_skinfa;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Software-08
  */
 public class FormSiswa extends javax.swing.JFrame {
+
+    private Connection conn;
+
+    public Connection koneksi() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/java_sistemakademik";
+            String user = "root";
+            String pass = "";
+            
+            conn = DriverManager.getConnection(url, user, pass);
+            System.out.println("Koneksi Berhasil");
+            return conn;
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal! " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
+    }
 
     /**
      * Creates new form FormLogin
@@ -297,6 +322,62 @@ public class FormSiswa extends javax.swing.JFrame {
         this.setVisible(false);
         new FormUser().setVisible(true);
     }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            // Ambil koneksi
+            Connection conn = koneksi();
+            
+            // Ambil nilai dari input
+            String nis = input_nis.getText();
+            String nama = input_nama.getText();
+            
+            // Ambil nilai dari radio button
+            String jenisKelamin = "";
+            if(rd_laki.isSelected()) {
+                jenisKelamin = "Laki-laki";
+            } else if(rd_perempuan.isSelected()) {
+                jenisKelamin = "Perempuan";
+            }
+            
+            // Ambil nilai dari combobox
+            String programKeahlian = input_jurusan.getSelectedItem().toString();
+            
+            // Validasi input tidak boleh kosong
+            if(nis.isEmpty() || nama.isEmpty() || jenisKelamin.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Semua field harus diisi!");
+                return;
+            }
+            
+            // Query insert
+            String sql = "INSERT INTO siswa (nis, nama_siswa, jenis_kelamin, program_keahlian) VALUES (?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, nis);
+            pst.setString(2, nama);
+            pst.setString(3, jenisKelamin);
+            pst.setString(4, programKeahlian);
+            
+            // Eksekusi query
+            pst.executeUpdate();
+            
+            // Tampilkan pesan sukses
+            JOptionPane.showMessageDialog(null, "Data siswa berhasil disimpan!");
+            
+            // Bersihkan form
+            clearForm();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }
+
+    private void clearForm() {
+        input_nis.setText("");
+        input_nama.setText("");
+        buttonGroup1.clearSelection();
+        input_jurusan.setSelectedIndex(0);
+        input_nis.requestFocus();
+    }
 
     /**
      * @param args the command line arguments

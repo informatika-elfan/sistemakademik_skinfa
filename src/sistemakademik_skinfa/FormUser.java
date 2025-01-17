@@ -4,11 +4,36 @@
  */
 package sistemakademik_skinfa;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Software-08
  */
 public class FormUser extends javax.swing.JFrame {
+
+    private Connection conn;
+
+    public Connection koneksi() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/java_sistemakademik";
+            String user = "root";
+            String pass = "";
+            
+            conn = DriverManager.getConnection(url, user, pass);
+            System.out.println("Koneksi Berhasil");
+            return conn;
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal! " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
+    }
 
     /**
      * Creates new form FormLogin
@@ -290,25 +315,43 @@ public class FormUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu8MouseClicked
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        String nis, namasiswa, jk, konsentrasi, alamat;
-        nis= input_username.getText();
-        namasiswa = input_password.getText();
-        
-        if(rd_lk.isSelected()){
-            jk = "L";
-        }else{
-            jk = "P";
+        try {
+            // Ambil koneksi
+            Connection conn = koneksi();
+            
+            // Ambil nilai dari input
+            String username = input_username.getText();
+            String password = input_password.getText();
+            String namaLengkap = input_namaLengkap.getText();
+            
+            // Validasi input tidak boleh kosong
+            if(username.isEmpty() || password.isEmpty() || namaLengkap.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Semua field harus diisi!");
+                return;
+            }
+            
+            // Query insert yang lebih sederhana sesuai struktur tabel
+            String sql = "INSERT INTO admin VALUES (?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, password);
+            pst.setString(3, namaLengkap);
+            
+            // Eksekusi query
+            pst.executeUpdate();
+            
+            // Tampilkan pesan sukses
+            JOptionPane.showMessageDialog(null, "Data berhasil disimpan!");
+            
+            // Bersihkan form
+            input_username.setText("");
+            input_password.setText("");
+            input_namaLengkap.setText("");
+            input_username.requestFocus();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-        
-        konsentrasi = cmb_konsentrasi.getSelectedItem().toString();
-        alamat= txt_alamat.getText();
-        
-        lbl_nis.setText(nis);
-        lbl_namasiswa.setText(namasiswa);
-        lbl_jk.setText(jk);
-        lbl_konsentrasi.setText(konsentrasi);
-        lbl_alamat.setText(alamat);
-
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     /**
@@ -336,6 +379,7 @@ public class FormUser extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
