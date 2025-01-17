@@ -8,12 +8,12 @@ package sistemakademik_skinfa;
  *
  * @author Software-08
  */
-public class FormUser extends javax.swing.JFrame {
+public class FormGuru extends javax.swing.JFrame {
 
     /**
      * Creates new form FormLogin
      */
-    public FormUser() {
+    public FormGuru() {
         initComponents();
     }
 
@@ -29,16 +29,19 @@ public class FormUser extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        input_username = new javax.swing.JTextField();
-        input_password = new javax.swing.JTextField();
+        input_nis = new javax.swing.JTextField();
+        input_nama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btn_simpan = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        rd_laki = new javax.swing.JRadioButton();
+        rd_perempuan = new javax.swing.JRadioButton();
+        input_jurusan = new javax.swing.JComboBox<>();
         btn_batal = new javax.swing.JButton();
         btn_liatData = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        input_namaLengkap = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         navMenu_home = new javax.swing.JMenu();
         Nav_FromSiswa = new javax.swing.JMenu();
@@ -55,29 +58,40 @@ public class FormUser extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(16, 101, 41));
-        jLabel2.setText("Username");
+        jLabel2.setText("NIS");
 
-        input_username.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        input_nis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        input_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        input_password.addActionListener(new java.awt.event.ActionListener() {
+        input_nama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        input_nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_passwordActionPerformed(evt);
+                input_namaActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(16, 101, 41));
-        jLabel3.setText("Password");
+        jLabel3.setText("Nama Siswa");
 
         btn_simpan.setBackground(new java.awt.Color(0, 102, 51));
         btn_simpan.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan.setText("simpan");
-        btn_simpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpanActionPerformed(evt);
-            }
-        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(16, 101, 41));
+        jLabel5.setText("Program Keahlian");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(16, 101, 41));
+        jLabel6.setText("Jenis Kelamin");
+
+        buttonGroup1.add(rd_laki);
+        rd_laki.setText("Laki-laki");
+
+        buttonGroup1.add(rd_perempuan);
+        rd_perempuan.setText("Perempuan");
+
+        input_jurusan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teknik Komputer dan Jaringan (TKJ)", "Rekayasa Perangkat Lunak (RPL)", "Teknik Mesin", "Teknik Otomotif", "Teknik Elektro", "Bisnis Daring dan Pemasaran (BDP)", "Manajemen Perkantoran dan Layanan Bisnis", "Perhotelan", "Tata Boga" }));
 
         btn_batal.setBackground(new java.awt.Color(0, 102, 51));
         btn_batal.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,8 +106,8 @@ public class FormUser extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(16, 101, 41));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("DATA USER");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("FORM SISWA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,27 +115,16 @@ public class FormUser extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(112, 112, 112))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(14, 14, 14))
+                .addGap(16, 16, 16))
         );
-
-        input_namaLengkap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        input_namaLengkap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_namaLengkapActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(16, 101, 41));
-        jLabel4.setText("Nama Lengkap");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,45 +133,55 @@ public class FormUser extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(input_password, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(input_username)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_liatData, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addGap(32, 32, 32)
-                            .addComponent(input_namaLengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(input_nama)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rd_laki)
+                                .addGap(38, 38, 38)
+                                .addComponent(rd_perempuan))
+                            .addComponent(input_jurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(input_nis, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_liatData, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(input_nis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(input_nama))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rd_laki)
+                            .addComponent(rd_perempuan))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input_username, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input_password, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input_namaLengkap, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jLabel4))
-                .addGap(65, 65, 65)
+                    .addComponent(input_jurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,13 +263,9 @@ public class FormUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void input_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_passwordActionPerformed
+    private void input_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_namaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_input_passwordActionPerformed
-
-    private void input_namaLengkapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_namaLengkapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input_namaLengkapActionPerformed
+    }//GEN-LAST:event_input_namaActionPerformed
 
     private void jMenuItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MouseClicked
         this.setVisible(false);
@@ -289,28 +298,6 @@ public class FormUser extends javax.swing.JFrame {
         new FormUser().setVisible(true);
     }//GEN-LAST:event_jMenu8MouseClicked
 
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        String nis, namasiswa, jk, konsentrasi, alamat;
-        nis= input_username.getText();
-        namasiswa = input_password.getText();
-        
-        if(rd_lk.isSelected()){
-            jk = "L";
-        }else{
-            jk = "P";
-        }
-        
-        konsentrasi = cmb_konsentrasi.getSelectedItem().toString();
-        alamat= txt_alamat.getText();
-        
-        lbl_nis.setText(nis);
-        lbl_namasiswa.setText(namasiswa);
-        lbl_jk.setText(jk);
-        lbl_konsentrasi.setText(konsentrasi);
-        lbl_alamat.setText(alamat);
-
-    }//GEN-LAST:event_btn_simpanActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -328,13 +315,13 @@ public class FormUser extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGuru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGuru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGuru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGuru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -348,7 +335,7 @@ public class FormUser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormUser().setVisible(true);
+                new FormGuru().setVisible(true);
             }
         });
     }
@@ -359,13 +346,14 @@ public class FormUser extends javax.swing.JFrame {
     private javax.swing.JButton btn_liatData;
     private javax.swing.JButton btn_simpan;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField input_namaLengkap;
-    private javax.swing.JTextField input_password;
-    private javax.swing.JTextField input_username;
+    private javax.swing.JComboBox<String> input_jurusan;
+    private javax.swing.JTextField input_nama;
+    private javax.swing.JTextField input_nis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
@@ -376,5 +364,7 @@ public class FormUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenu navMenu_home;
+    private javax.swing.JRadioButton rd_laki;
+    private javax.swing.JRadioButton rd_perempuan;
     // End of variables declaration//GEN-END:variables
 }

@@ -44,7 +44,7 @@ public class FormSiswa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         navMenu_home = new javax.swing.JMenu();
-        navMenu_dataSiswa = new javax.swing.JMenu();
+        Nav_FromSiswa = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -192,28 +192,53 @@ public class FormSiswa extends javax.swing.JFrame {
         navMenu_home.setText("Home");
         jMenuBar3.add(navMenu_home);
 
-        navMenu_dataSiswa.setText("Data Siswa");
+        Nav_FromSiswa.setText("Data Siswa");
+        Nav_FromSiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nav_FromSiswaMouseClicked(evt);
+            }
+        });
 
         jMenuItem4.setText("From Siswa");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem4MouseClicked(evt);
+            }
+        });
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        navMenu_dataSiswa.add(jMenuItem4);
+        Nav_FromSiswa.add(jMenuItem4);
 
-        jMenuBar3.add(navMenu_dataSiswa);
+        jMenuBar3.add(Nav_FromSiswa);
 
         jMenu7.setText("Data Guru");
 
         jMenu5.setText("From Guru");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenu7.add(jMenu5);
 
         jMenuBar3.add(jMenu7);
 
         jMenu8.setText("Data User");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
 
         jMenu10.setText("From User");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenu8.add(jMenu10);
 
         jMenuBar3.add(jMenu8);
@@ -242,11 +267,36 @@ public class FormSiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_input_namaActionPerformed
 
+    private void jMenuItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MouseClicked
+        this.setVisible(false);
+        new FormSiswa().setVisible(true);
+    }//GEN-LAST:event_jMenuItem4MouseClicked
+
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new FormLogin().setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void Nav_FromSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nav_FromSiswaMouseClicked
+        this.setVisible(false);
+        new FormUser().setVisible(true);
+    }//GEN-LAST:event_Nav_FromSiswaMouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        this.setVisible(false);
+        new FormGuru().setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        this.setVisible(false);
+        new FormUser().setVisible(true);
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        this.setVisible(false);
+        new FormUser().setVisible(true);
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -287,6 +337,7 @@ public class FormSiswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Nav_FromSiswa;
     private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_liatData;
     private javax.swing.JButton btn_simpan;
@@ -299,24 +350,15 @@ public class FormSiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JMenu navMenu_dataSiswa;
     private javax.swing.JMenu navMenu_home;
     private javax.swing.JRadioButton rd_laki;
     private javax.swing.JRadioButton rd_perempuan;

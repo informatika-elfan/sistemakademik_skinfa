@@ -11,10 +11,13 @@
             <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="navMenu_dataSiswa">
+        <Menu class="javax.swing.JMenu" name="Nav_FromSiswa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Siswa"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Nav_FromSiswaMouseClicked"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
@@ -54,6 +57,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="From User"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu10MouseClicked"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>
@@ -150,7 +156,7 @@
                   <Color blue="29" green="65" red="10" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SELEMAT DATANG"/>
+                <Property name="text" type="java.lang.String" value="SELAMET DATANG"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -32,7 +32,7 @@ public class FormDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         navMenu_home = new javax.swing.JMenu();
-        navMenu_dataSiswa = new javax.swing.JMenu();
+        Nav_FromSiswa = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -49,7 +49,7 @@ public class FormDashboard extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(16, 101, 41));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SELEMAT DATANG");
+        jLabel1.setText("SELAMET DATANG");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,7 +78,12 @@ public class FormDashboard extends javax.swing.JFrame {
         navMenu_home.setText("Home");
         jMenuBar3.add(navMenu_home);
 
-        navMenu_dataSiswa.setText("Data Siswa");
+        Nav_FromSiswa.setText("Data Siswa");
+        Nav_FromSiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nav_FromSiswaMouseClicked(evt);
+            }
+        });
 
         jMenuItem4.setText("From Siswa");
         jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,9 +96,9 @@ public class FormDashboard extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        navMenu_dataSiswa.add(jMenuItem4);
+        Nav_FromSiswa.add(jMenuItem4);
 
-        jMenuBar3.add(navMenu_dataSiswa);
+        jMenuBar3.add(Nav_FromSiswa);
 
         jMenu7.setText("Data Guru");
 
@@ -115,6 +120,11 @@ public class FormDashboard extends javax.swing.JFrame {
         });
 
         jMenu10.setText("From User");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenu8.add(jMenu10);
 
         jMenuBar3.add(jMenu8);
@@ -160,6 +170,16 @@ public class FormDashboard extends javax.swing.JFrame {
         new FormUser().setVisible(true);
     }//GEN-LAST:event_jMenu8MouseClicked
 
+    private void Nav_FromSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nav_FromSiswaMouseClicked
+        this.setVisible(false);
+        new FormUser().setVisible(true);
+    }//GEN-LAST:event_Nav_FromSiswaMouseClicked
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        this.setVisible(false);
+        new FormUser().setVisible(true);
+    }//GEN-LAST:event_jMenu10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +223,7 @@ public class FormDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Nav_FromSiswa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu10;
@@ -214,7 +235,6 @@ public class FormDashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JMenu navMenu_dataSiswa;
     private javax.swing.JMenu navMenu_home;
     // End of variables declaration//GEN-END:variables
 }
